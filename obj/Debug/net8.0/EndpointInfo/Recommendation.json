@@ -1,0 +1,810 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Recommendation",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Clientes/ Cadastrar Cliente": {
+      "post": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Todos os campos são obrigatorios",
+        "operationId": "Cadastrar Cliente",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddClienteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Clientes/ Listar Clientes": {
+      "get": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Listagem de todos os clientes cadastrados.",
+        "operationId": "Listar Clientes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClienteDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Clientes/ Atualizar Cliente {id}": {
+      "put": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Atualiza todos os campos de um cliente.",
+        "operationId": "Atualizar Cliente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateClienteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Receitas/ Cadastar Receitas": {
+      "post": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Todos os campos exceto Descrição, são obrigatorios.",
+        "operationId": "Cadastar Receitas",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddReceitaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Receitas/ Listar Receitas": {
+      "get": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Listagem de todas as receitas cadastradas.",
+        "operationId": "Listar Receitas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Receitas"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Receitas/ Atualizar Receita {id}": {
+      "put": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Atualiza todos os campos de uma receita",
+        "operationId": "Atualizar Receita",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateReceitaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Nutricionistas/ Cadastrar Nutricionistas": {
+      "post": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Todos os campos são obrigatorios.",
+        "operationId": "Cadastrar Nutricionista",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddNutricionistaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Nutricionistas/ Listar Nutricionistas": {
+      "get": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Listagem de todos os Nutricionistas.",
+        "operationId": "Listar Nutricionistas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Nutricionista"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Nutricionistas/ Atualizar Nutricionista {id}": {
+      "put": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Atualiza todos os campos do registro de um Nutricionista.",
+        "operationId": "Atualizar Cadastro de Nutricionista",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateNutricionistaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Recepcionistas/ Cadastrar Recepcionistas": {
+      "post": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Todos os campos são obrigatorios.",
+        "operationId": "Cadastrar Recepcionista",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddRecepcionistaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Recepcionistas/ Listar Recepcionistas": {
+      "get": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Listagem de todos os Recepcionistas cadastrados.",
+        "operationId": "Listar Recepcionistas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Recepcionista"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Recepcionistas/ Atualizar Recepcionista {id}": {
+      "put": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Atualiza nome e senha de um recepcionista.",
+        "operationId": "Atualizar Recepcionista",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRecepcionistaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Prescrições/ Cadastrar Nova Prescrição": {
+      "post": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Cadastro de cliente e receita obrigatorios.",
+        "operationId": "Cadastrar Nova Prescrição",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddPrescricoesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Prescrições/ Listar Prescrições": {
+      "get": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Listagem de todas as prescrições cadastradas.",
+        "operationId": "Listar Prescrições",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Prescricoes"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddClienteRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "nmrResidencial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bairro": {
+            "type": "string",
+            "nullable": true
+          },
+          "cidade": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddNutricionistaRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "profissao": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddPrescricoesRequest": {
+        "type": "object",
+        "properties": {
+          "cliente": {
+            "$ref": "#/components/schemas/Clientes"
+          },
+          "receita": {
+            "$ref": "#/components/schemas/Receitas"
+          },
+          "prescritoPor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddReceitaRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "marca": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponivel": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddRecepcionistaRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClienteDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAtivo": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Clientes": {
+        "required": [
+          "bairro",
+          "cidade",
+          "cpf",
+          "endereco",
+          "nmrResidencial",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "clienteId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cpf": {
+            "maxLength": 11,
+            "minLength": 1,
+            "type": "string"
+          },
+          "ativo": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "endereco": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "nmrResidencial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bairro": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cidade": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "clientePrescricoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Prescricoes"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Nutricionista": {
+        "required": [
+          "email",
+          "nome",
+          "numero",
+          "profissao"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "profissao": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "email": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "numero": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Prescricoes": {
+        "type": "object",
+        "properties": {
+          "clienteId": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "cliente": {
+            "$ref": "#/components/schemas/Clientes"
+          },
+          "receitaId": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "receita": {
+            "$ref": "#/components/schemas/Receitas"
+          },
+          "compraConfirmada": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "dataLancamento": {
+            "type": "string",
+            "format": "date",
+            "readOnly": true
+          },
+          "dataPagamendo": {
+            "type": "string",
+            "format": "date",
+            "readOnly": true
+          },
+          "prescritoPor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Receitas": {
+        "required": [
+          "categoria",
+          "disponivel",
+          "marca",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "receitaId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoria": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "marca": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "disponivel": {
+            "type": "boolean"
+          },
+          "receitaPrescricoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Prescricoes"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Recepcionista": {
+        "required": [
+          "nome",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "senha": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateClienteRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAtivo": {
+            "type": "boolean"
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "nmrResidencial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bairro": {
+            "type": "string",
+            "nullable": true
+          },
+          "cidade": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateNutricionistaRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "profissao": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateReceitaRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "marca": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponivel": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateRecepcionistaRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
