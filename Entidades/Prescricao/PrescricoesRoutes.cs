@@ -37,9 +37,9 @@ namespace Recommendation.Entidades.Prescricao
             }).WithName("Listar Prescrições")
             .WithDescription("Listagem de todas as prescrições cadastradas.");
 
-            PrescricoesRoutes.MapPut("/ Atualizar Prescrições {Id}", async (Guid Id, AppDbContext context) =>
+            PrescricoesRoutes.MapPut("{Id}", async (Guid Id, AppDbContext context) =>
             {
-                var updatePrescricao = await context.Prescricoes.SingleOrDefaultAsync(prescricao => prescricao.Id == Id);
+                var updatePrescricao = await context.Prescricoes.FindAsync(Id);
                 if (updatePrescricao != null)
                     return Results.NotFound();
                 updatePrescricao.AtualizarStatus();

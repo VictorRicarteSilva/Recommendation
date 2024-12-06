@@ -34,7 +34,7 @@ namespace Recommendation
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             ClienteRoutes.AddClienteRoutes(app);
             ReceitaRoutes.AddReceitaRoutes(app);

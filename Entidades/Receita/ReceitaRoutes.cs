@@ -33,9 +33,9 @@ namespace Recommendation.Entidades.Receita
             .WithDescription("Listagem de todas as receitas cadastradas.");
 
             //Update receitas
-            receitaRoutes.MapPut("/ Atualizar Receita {id}", async (Guid id, UpdateReceitaRequest request, AppDbContext context) =>
+            receitaRoutes.MapPut("{Id}", async (Guid Id, UpdateReceitaRequest request, AppDbContext context) =>
             {
-                var upgradeReceita = await context.Receitas.SingleOrDefaultAsync(receita => receita.Id == id);
+                var upgradeReceita = await context.Receitas.FindAsync(Id);
 
                 if (upgradeReceita == null)
                     return Results.NotFound();

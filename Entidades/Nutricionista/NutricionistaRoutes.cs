@@ -32,9 +32,9 @@ namespace Recommendation.Entidades.Nutricionista
             }).WithName("Listar Nutricionistas")
             .WithDescription("Listagem de todos os Nutricionistas.");
 
-            NutricionistaRoutes.MapPut("/ Atualizar Nutricionista {id}", async (Guid id, UpdateNutricionistaRequest request, AppDbContext context) =>
+            NutricionistaRoutes.MapPut("{id}", async (Guid id, UpdateNutricionistaRequest request, AppDbContext context) =>
             {
-                var updateNutricionista = await context.Nutricionistas.SingleOrDefaultAsync(nutricionista =>  nutricionista.Id == id);  
+                var updateNutricionista = await context.Nutricionistas.FindAsync(id);
                 if(updateNutricionista == null)
                     return Results.NotFound();
 

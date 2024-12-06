@@ -53,7 +53,7 @@
         }
       }
     },
-    "/Clientes/ Atualizar Cliente {id}": {
+    "/Clientes/{Id}": {
       "put": {
         "tags": [
           "Recommendation"
@@ -62,7 +62,7 @@
         "operationId": "Atualizar Cliente",
         "parameters": [
           {
-            "name": "id",
+            "name": "Id",
             "in": "path",
             "required": true,
             "schema": {
@@ -136,7 +136,7 @@
         }
       }
     },
-    "/Receitas/ Atualizar Receita {id}": {
+    "/Receitas/{Id}": {
       "put": {
         "tags": [
           "Recommendation"
@@ -145,7 +145,7 @@
         "operationId": "Atualizar Receita",
         "parameters": [
           {
-            "name": "id",
+            "name": "Id",
             "in": "path",
             "required": true,
             "schema": {
@@ -219,7 +219,7 @@
         }
       }
     },
-    "/Nutricionistas/ Atualizar Nutricionista {id}": {
+    "/Nutricionistas/{id}": {
       "put": {
         "tags": [
           "Recommendation"
@@ -384,6 +384,31 @@
           }
         }
       }
+    },
+    "/Prescrições/{Id}": {
+      "put": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Atualiza o status de compra, e lança o horario em que o pagamento foi confirmado",
+        "operationId": "Atualizar Prescrições",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -523,7 +548,7 @@
         ],
         "type": "object",
         "properties": {
-          "clienteId": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
@@ -556,13 +581,6 @@
           "cidade": {
             "minLength": 1,
             "type": "string"
-          },
-          "clientePrescricoes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Prescricoes"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -605,21 +623,9 @@
       "Prescricoes": {
         "type": "object",
         "properties": {
-          "clienteId": {
+          "id": {
             "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "cliente": {
-            "$ref": "#/components/schemas/Clientes"
-          },
-          "receitaId": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "receita": {
-            "$ref": "#/components/schemas/Receitas"
+            "format": "uuid"
           },
           "compraConfirmada": {
             "type": "boolean",
@@ -638,6 +644,22 @@
           "prescritoPor": {
             "type": "string",
             "nullable": true
+          },
+          "nomeCliente": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeReceita": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -651,7 +673,7 @@
         ],
         "type": "object",
         "properties": {
-          "receitaId": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },

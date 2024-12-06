@@ -1,35 +1,6 @@
 [
   {
     "ContainingType": "Recommendation.Entidades.Cliente.ClienteRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddClienteRoutes\u003Eb__0_2",
-    "RelativePath": "Clientes/ Atualizar Cliente {id}",
-    "HttpMethod": "PUT",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Recomendacao.Entidades.Cliente.Requests.UpdateClienteRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "Atualizar Cliente",
-    "Description": "Atualiza todos os campos de um cliente."
-  },
-  {
-    "ContainingType": "Recommendation.Entidades.Cliente.ClienteRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddClienteRoutes\u003Eb__0_0",
     "RelativePath": "Clientes/ Cadastrar Cliente",
     "HttpMethod": "POST",
@@ -73,21 +44,21 @@
     "Description": "Listagem de todos os clientes cadastrados."
   },
   {
-    "ContainingType": "Recommendation.Entidades.Nutricionista.NutricionistaRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddNutricionistaRoutes\u003Eb__0_2",
-    "RelativePath": "Nutricionistas/ Atualizar Nutricionista {id}",
+    "ContainingType": "Recommendation.Entidades.Cliente.ClienteRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddClienteRoutes\u003Eb__0_2",
+    "RelativePath": "Clientes/{Id}",
     "HttpMethod": "PUT",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Id",
         "Type": "System.Guid",
         "IsRequired": true
       },
       {
         "Name": "request",
-        "Type": "Recommendation.Entidades.Nutricionista.Requests.UpdateNutricionistaRequest",
+        "Type": "Recomendacao.Entidades.Cliente.Requests.UpdateClienteRequest",
         "IsRequired": true
       }
     ],
@@ -98,8 +69,8 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Atualizar Cadastro de Nutricionista",
-    "Description": "Atualiza todos os campos do registro de um Nutricionista."
+    "EndpointName": "Atualizar Cliente",
+    "Description": "Atualiza todos os campos de um cliente."
   },
   {
     "ContainingType": "Recommendation.Entidades.Nutricionista.NutricionistaRoutes\u002B\u003C\u003Ec",
@@ -146,6 +117,35 @@
     "Description": "Listagem de todos os Nutricionistas."
   },
   {
+    "ContainingType": "Recommendation.Entidades.Nutricionista.NutricionistaRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddNutricionistaRoutes\u003Eb__0_2",
+    "RelativePath": "Nutricionistas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Recommendation.Entidades.Nutricionista.Requests.UpdateNutricionistaRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Atualizar Cadastro de Nutricionista",
+    "Description": "Atualiza todos os campos do registro de um Nutricionista."
+  },
+  {
     "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_0",
     "RelativePath": "Prescri\u00E7\u00F5es/ Cadastrar Nova Prescri\u00E7\u00E3o",
@@ -190,21 +190,16 @@
     "Description": "Listagem de todas as prescri\u00E7\u00F5es cadastradas."
   },
   {
-    "ContainingType": "Recommendation.Entidades.Receita.ReceitaRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddReceitaRoutes\u003Eb__0_2",
-    "RelativePath": "Receitas/ Atualizar Receita {id}",
+    "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_2",
+    "RelativePath": "Prescri\u00E7\u00F5es/{Id}",
     "HttpMethod": "PUT",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Id",
         "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Recommendation.Entidades.Receita.Requests.UpdateReceitaRequest",
         "IsRequired": true
       }
     ],
@@ -215,8 +210,8 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Atualizar Receita",
-    "Description": "Atualiza todos os campos de uma receita"
+    "EndpointName": "Atualizar Prescri\u00E7\u00F5es",
+    "Description": "Atualiza o status de compra, e lan\u00E7a o horario em que o pagamento foi confirmado"
   },
   {
     "ContainingType": "Recommendation.Entidades.Receita.ReceitaRoutes\u002B\u003C\u003Ec",
@@ -261,6 +256,35 @@
     ],
     "EndpointName": "Listar Receitas",
     "Description": "Listagem de todas as receitas cadastradas."
+  },
+  {
+    "ContainingType": "Recommendation.Entidades.Receita.ReceitaRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddReceitaRoutes\u003Eb__0_2",
+    "RelativePath": "Receitas/{Id}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Recommendation.Entidades.Receita.Requests.UpdateReceitaRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Atualizar Receita",
+    "Description": "Atualiza todos os campos de uma receita"
   },
   {
     "ContainingType": "Recommendation.Entidades.Recepcionista.RecepcionistaRoutes\u002B\u003C\u003Ec",

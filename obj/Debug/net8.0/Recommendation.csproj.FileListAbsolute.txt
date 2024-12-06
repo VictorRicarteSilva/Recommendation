@@ -137,3 +137,5 @@ D:\Main\ProjetoRecomendacao\Recommendation\Recommendation\obj\Debug\net8.0\Recom
 D:\Main\ProjetoRecomendacao\Recommendation\Recommendation\obj\Debug\net8.0\Recommendation.genruntimeconfig.cache
 D:\Main\ProjetoRecomendacao\Recommendation\Recommendation\obj\Debug\net8.0\ref\Recommendation.dll
 D:\Main\ProjetoRecomendacao\Recommendation\Recommendation\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\Main\ProjetoRecomendacao\Recommendation\Recommendation\obj\Debug\net8.0\Recommendation.sourcelink.json
+D:\Main\ProjetoRecomendacao\Recommendation\Recommendation\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

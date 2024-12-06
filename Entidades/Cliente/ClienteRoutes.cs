@@ -33,9 +33,9 @@ namespace Recommendation.Entidades.Cliente
             .WithDescription("Listagem de todos os clientes cadastrados.");
 
             //Update clientes
-            clienteRoutes.MapPut("/ Atualizar Cliente {id}", async (Guid id, UpdateClienteRequest request, AppDbContext context) =>
+            clienteRoutes.MapPut("{Id}", async (Guid Id, UpdateClienteRequest request, AppDbContext context) =>
             {
-                var updateCliente = await context.Clientes.SingleOrDefaultAsync(cliente => cliente.Id == id);
+                var updateCliente = await context.Clientes.FindAsync(Id);
 
                 if (updateCliente == null)
                     return Results.NotFound();
