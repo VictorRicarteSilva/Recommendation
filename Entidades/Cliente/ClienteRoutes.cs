@@ -32,6 +32,14 @@ namespace Recommendation.Entidades.Cliente
             }).WithName("ListarClientes")
             .WithDescription("Listagem de todos os clientes cadastrados.");
 
+            //Select clientes
+            clienteRoutes.MapGet("/ListarClientesSemFiltro", async (AppDbContext context) =>
+            {
+                var clientes = await context.Clientes.ToListAsync();
+                return clientes;
+            }).WithName("ListarClientes")
+            .WithDescription("Listagem de todos os clientes cadastrados.");
+
             //Update clientes
             clienteRoutes.MapPut("{Cpf}", async (string Cpf, UpdateClienteRequest request, AppDbContext context) =>
             {
