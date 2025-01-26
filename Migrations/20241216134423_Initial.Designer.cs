@@ -12,8 +12,8 @@ using Recommendation.Data;
 namespace Recommendation.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241206175754_NewMigration")]
-    partial class NewMigration
+    [Migration("20241216134423_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,21 @@ namespace Recommendation.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("PrescricoesReceitas", b =>
+                {
+                    b.Property<Guid>("ItensReceitadosId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("PrescricoesId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("ItensReceitadosId", "PrescricoesId");
+
+                    b.HasIndex("PrescricoesId");
+
+                    b.ToTable("PrescricoesReceitas");
+                });
 
             modelBuilder.Entity("Recommendation.Entidades.Cliente.Clientes", b =>
                 {
@@ -59,12 +74,15 @@ namespace Recommendation.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)");
 
+                    b.Property<bool>("PossuiComorbidade")
+                        .HasColumnType("boolean");
+
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("Recommendation.Entidades.Nutricionista.Nutricionista", b =>
+            modelBuilder.Entity("Recommendation.Entidades.Parceiros.Parceiro", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,9 +107,13 @@ namespace Recommendation.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Nutricionistas");
+                    b.ToTable("Parceiros");
                 });
 
             modelBuilder.Entity("Recommendation.Entidades.Prescricao.Prescricoes", b =>
@@ -100,28 +122,17 @@ namespace Recommendation.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<bool>("CompraConfirmada")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("DataLancamento")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<DateTime>("DataPagamendo")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NomeCliente")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NomeReceita")
+                    b.Property<string>("PrescritoPara")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -129,12 +140,10 @@ namespace Recommendation.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("ReceitasId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("StatusPrescricao")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReceitasId");
 
                     b.ToTable("Prescricoes");
                 });
@@ -166,6 +175,9 @@ namespace Recommendation.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)");
 
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("numeric");
+
                     b.HasKey("Id");
 
                     b.ToTable("Receitas");
@@ -191,16 +203,19 @@ namespace Recommendation.Migrations
                     b.ToTable("Recepcionistas");
                 });
 
-            modelBuilder.Entity("Recommendation.Entidades.Prescricao.Prescricoes", b =>
+            modelBuilder.Entity("PrescricoesReceitas", b =>
                 {
                     b.HasOne("Recommendation.Entidades.Receita.Receitas", null)
-                        .WithMany("ReceitaPrescricoes")
-                        .HasForeignKey("ReceitasId");
-                });
+                        .WithMany()
+                        .HasForeignKey("ItensReceitadosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("Recommendation.Entidades.Receita.Receitas", b =>
-                {
-                    b.Navigation("ReceitaPrescricoes");
+                    b.HasOne("Recommendation.Entidades.Prescricao.Prescricoes", null)
+                        .WithMany()
+                        .HasForeignKey("PrescricoesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

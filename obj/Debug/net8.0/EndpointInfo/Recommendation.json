@@ -5,13 +5,13 @@
     "version": "1.0"
   },
   "paths": {
-    "/Clientes/ Cadastrar Cliente": {
+    "/Clientes/CadastrarCliente": {
       "post": {
         "tags": [
           "Recommendation"
         ],
         "description": "Todos os campos são obrigatorios",
-        "operationId": "Cadastrar Cliente",
+        "operationId": "CadastrarCliente",
         "requestBody": {
           "content": {
             "application/json": {
@@ -29,13 +29,13 @@
         }
       }
     },
-    "/Clientes/ Listar Clientes": {
+    "/Clientes/ListarClientes": {
       "get": {
         "tags": [
           "Recommendation"
         ],
         "description": "Listagem de todos os clientes cadastrados.",
-        "operationId": "Listar Clientes",
+        "operationId": "ListarClientes",
         "responses": {
           "200": {
             "description": "OK",
@@ -53,21 +53,20 @@
         }
       }
     },
-    "/Clientes/{Id}": {
+    "/Clientes/{Cpf}": {
       "put": {
         "tags": [
           "Recommendation"
         ],
         "description": "Atualiza todos os campos de um cliente.",
-        "operationId": "Atualizar Cliente",
+        "operationId": "AtualizarCliente",
         "parameters": [
           {
-            "name": "Id",
+            "name": "Cpf",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           }
         ],
@@ -118,7 +117,7 @@
           "Recommendation"
         ],
         "description": "Listagem de todas as receitas cadastradas.",
-        "operationId": "Listar Receitas",
+        "operationId": "Listar Catalogo",
         "responses": {
           "200": {
             "description": "OK",
@@ -171,18 +170,18 @@
         }
       }
     },
-    "/Nutricionistas/ Cadastrar Nutricionistas": {
+    "/Parceiros/Cadastrar Parceiros": {
       "post": {
         "tags": [
           "Recommendation"
         ],
         "description": "Todos os campos são obrigatorios.",
-        "operationId": "Cadastrar Nutricionista",
+        "operationId": "Cadastrar Parceiros",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddNutricionistaRequest"
+                "$ref": "#/components/schemas/AddParceiroRequest"
               }
             }
           },
@@ -195,13 +194,13 @@
         }
       }
     },
-    "/Nutricionistas/ Listar Nutricionistas": {
+    "/Parceiros/Listar Parceiros": {
       "get": {
         "tags": [
           "Recommendation"
         ],
-        "description": "Listagem de todos os Nutricionistas.",
-        "operationId": "Listar Nutricionistas",
+        "description": "Listagem de todos os Parceiros.",
+        "operationId": "Listar Parceiros",
         "responses": {
           "200": {
             "description": "OK",
@@ -210,7 +209,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Nutricionista"
+                    "$ref": "#/components/schemas/Parceiro"
                   }
                 }
               }
@@ -219,13 +218,13 @@
         }
       }
     },
-    "/Nutricionistas/{id}": {
+    "/Parceiros/{id}": {
       "put": {
         "tags": [
           "Recommendation"
         ],
-        "description": "Atualiza todos os campos do registro de um Nutricionista.",
-        "operationId": "Atualizar Cadastro de Nutricionista",
+        "description": "Atualiza todos os campos do registro de um Parceiro.",
+        "operationId": "Atualizar Cadastro de Parceiro",
         "parameters": [
           {
             "name": "id",
@@ -241,7 +240,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNutricionistaRequest"
+                "$ref": "#/components/schemas/UpdateParceiroRequest"
               }
             }
           },
@@ -254,7 +253,7 @@
         }
       }
     },
-    "/Recepcionistas/ Cadastrar Recepcionistas": {
+    "/Recepcionistas/Cadastrar Recepcionistas": {
       "post": {
         "tags": [
           "Recommendation"
@@ -278,7 +277,7 @@
         }
       }
     },
-    "/Recepcionistas/ Listar Recepcionistas": {
+    "/Recepcionistas/Listar Recepcionistas": {
       "get": {
         "tags": [
           "Recommendation"
@@ -302,7 +301,7 @@
         }
       }
     },
-    "/Recepcionistas/ Atualizar Recepcionista {id}": {
+    "/Recepcionistas/{id}": {
       "put": {
         "tags": [
           "Recommendation"
@@ -337,13 +336,13 @@
         }
       }
     },
-    "/Prescrições/ Cadastrar Nova Prescrição": {
+    "/Prescrições/CadastrarNovaPrescrição": {
       "post": {
         "tags": [
           "Recommendation"
         ],
         "description": "Cadastro de cliente e receita obrigatorios.",
-        "operationId": "Cadastrar Nova Prescrição",
+        "operationId": "CadastrarNovaPrescrição",
         "requestBody": {
           "content": {
             "application/json": {
@@ -361,13 +360,47 @@
         }
       }
     },
-    "/Prescrições/ Listar Prescrições": {
+    "/Prescrições/{Cpf}": {
+      "post": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Insere receitas a lista de receitas da prescrição.",
+        "operationId": "AdicionarItensPrescrição",
+        "parameters": [
+          {
+            "name": "Cpf",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddItensRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Prescrições/Listar Prescrições": {
       "get": {
         "tags": [
           "Recommendation"
         ],
         "description": "Listagem de todas as prescrições cadastradas.",
-        "operationId": "Listar Prescrições",
+        "operationId": "ListarPrescrições",
         "responses": {
           "200": {
             "description": "OK",
@@ -385,21 +418,44 @@
         }
       }
     },
-    "/Prescrições/{Id}": {
+    "/Prescrições/{Cpf} finalizado": {
       "put": {
         "tags": [
           "Recommendation"
         ],
         "description": "Atualiza o status de compra, e lança o horario em que o pagamento foi confirmado",
-        "operationId": "Atualizar Prescrições",
+        "operationId": "AtualizarPrescriçõesFinalizada",
         "parameters": [
           {
-            "name": "Id",
+            "name": "Cpf",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Prescrições/{Cpf} Cancelado": {
+      "put": {
+        "tags": [
+          "Recommendation"
+        ],
+        "description": "Atualiza o status de compra, e lança o horario em que o pagamento foi confirmado",
+        "operationId": "AtualizarPrescriçõesCancelada",
+        "parameters": [
+          {
+            "name": "Cpf",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -439,11 +495,35 @@
           "cidade": {
             "type": "string",
             "nullable": true
+          },
+          "possuiComorbidade": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
-      "AddNutricionistaRequest": {
+      "AddItensRequest": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "marca": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponivel": {
+            "type": "boolean"
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddParceiroRequest": {
         "type": "object",
         "properties": {
           "nome": {
@@ -461,6 +541,10 @@
           "numero": {
             "type": "string",
             "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -468,13 +552,15 @@
       "AddPrescricoesRequest": {
         "type": "object",
         "properties": {
-          "cliente": {
-            "$ref": "#/components/schemas/Clientes"
-          },
-          "receita": {
-            "$ref": "#/components/schemas/Receitas"
-          },
           "prescritoPor": {
+            "type": "string",
+            "nullable": true
+          },
+          "prescritoPara": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
             "type": "string",
             "nullable": true
           }
@@ -502,6 +588,10 @@
           },
           "disponivel": {
             "type": "boolean"
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -523,11 +613,11 @@
       "ClienteDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
           "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
             "type": "string",
             "nullable": true
           },
@@ -537,55 +627,7 @@
         },
         "additionalProperties": false
       },
-      "Clientes": {
-        "required": [
-          "bairro",
-          "cidade",
-          "cpf",
-          "endereco",
-          "nmrResidencial",
-          "nome"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "nome": {
-            "maxLength": 150,
-            "minLength": 1,
-            "type": "string"
-          },
-          "cpf": {
-            "maxLength": 11,
-            "minLength": 1,
-            "type": "string"
-          },
-          "ativo": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "endereco": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "nmrResidencial": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "bairro": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "cidade": {
-            "minLength": 1,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Nutricionista": {
+      "Parceiro": {
         "required": [
           "email",
           "nome",
@@ -616,6 +658,10 @@
             "maxLength": 20,
             "minLength": 1,
             "type": "string"
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -627,9 +673,8 @@
             "type": "string",
             "format": "uuid"
           },
-          "compraConfirmada": {
-            "type": "boolean",
-            "readOnly": true
+          "statusPrescricao": {
+            "$ref": "#/components/schemas/Status"
           },
           "dataLancamento": {
             "type": "string",
@@ -645,7 +690,7 @@
             "type": "string",
             "nullable": true
           },
-          "nomeCliente": {
+          "prescritoPara": {
             "type": "string",
             "nullable": true
           },
@@ -653,13 +698,13 @@
             "type": "string",
             "nullable": true
           },
-          "nomeReceita": {
-            "type": "string",
-            "nullable": true
-          },
-          "descricao": {
-            "type": "string",
-            "nullable": true
+          "itensReceitados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Receitas"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -699,7 +744,11 @@
           "disponivel": {
             "type": "boolean"
           },
-          "receitaPrescricoes": {
+          "valor": {
+            "type": "number",
+            "format": "double"
+          },
+          "prescricoes": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Prescricoes"
@@ -733,6 +782,15 @@
         },
         "additionalProperties": false
       },
+      "Status": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "UpdateClienteRequest": {
         "type": "object",
         "properties": {
@@ -762,11 +820,14 @@
           "cidade": {
             "type": "string",
             "nullable": true
+          },
+          "possuiComorbidade": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
-      "UpdateNutricionistaRequest": {
+      "UpdateParceiroRequest": {
         "type": "object",
         "properties": {
           "nome": {
@@ -809,6 +870,10 @@
           },
           "disponivel": {
             "type": "boolean"
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

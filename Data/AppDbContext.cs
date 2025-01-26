@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Recommendation.Entidades.Cliente;
-using Recommendation.Entidades.Nutricionista;
+using Recommendation.Entidades.Parceiros;
 using Recommendation.Entidades.Prescricao;
 using Recommendation.Entidades.Receita;
 using Recommendation.Entidades.Recepcionista;
@@ -11,7 +11,7 @@ namespace Recommendation.Data
         private IConfiguration _configuration;
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Receitas> Receitas { get; set; }
-        public DbSet<Nutricionista> Nutricionistas { get; set; }
+        public DbSet<Parceiro> Parceiros { get; set; }
         public DbSet<Recepcionista> Recepcionistas { get; set; }
         public DbSet<Prescricoes> Prescricoes { get; set; } 
 

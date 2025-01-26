@@ -3,5 +3,5 @@ using Recommendation.Entidades.Receita;
 
 namespace Recommendation.Entidades.Prescricao.Requests
 {
-    public record AddPrescricoesRequest(Clientes Cliente, Receitas Receita, string PrescritoPor);
+    public record AddPrescricoesRequest(string PrescritoPor, string PrescritoPara, string Cpf);
 }

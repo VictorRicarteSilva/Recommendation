@@ -1,4 +1,4 @@
 ﻿namespace Recommendation.Entidades.Cliente
 {
-    public record ClienteDto(Guid Id, string Nome, bool IsAtivo);
+    public record ClienteDto(string Nome, string Cpf, bool IsAtivo);
 }

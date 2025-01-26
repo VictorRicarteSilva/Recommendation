@@ -16,7 +16,7 @@ namespace Recommendation.Entidades.Receita
             receitaRoutes.MapPost("/ Cadastar Receitas", async (AddReceitaRequest request, AppDbContext context) =>
             {
                 var novaReceita =
-                new Receitas(request.Nome, request.Descricao, request.Categoria, request.Marca, request.Disponivel);
+                new Receitas(request.Nome, request.Descricao, request.Categoria, request.Marca, request.Disponivel, request.Valor);
                 await context.Receitas.AddAsync(novaReceita);
                 await context.SaveChangesAsync();
 
@@ -29,7 +29,7 @@ namespace Recommendation.Entidades.Receita
             {
                 var receitas = await context.Receitas.ToListAsync();
                 return receitas;
-            }).WithName("Listar Receitas")
+            }).WithName("Listar Catalogo")
             .WithDescription("Listagem de todas as receitas cadastradas.");
 
             //Update receitas
@@ -45,6 +45,7 @@ namespace Recommendation.Entidades.Receita
                 upgradeReceita.AtualizarCategoria(request.Categoria);
                 upgradeReceita.AtualizarMarca(request.Marca);
                 upgradeReceita.AtualizarDisponibilidade(request.Disponivel);
+                upgradeReceita.AtualizarValor(request.Valor);
 
                 await context.SaveChangesAsync();
                 return Results.Ok(upgradeReceita);

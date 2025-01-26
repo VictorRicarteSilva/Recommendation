@@ -1,8 +1,37 @@
 [
   {
     "ContainingType": "Recommendation.Entidades.Cliente.ClienteRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddClienteRoutes\u003Eb__0_2",
+    "RelativePath": "Clientes/{Cpf}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Recomendacao.Entidades.Cliente.Requests.UpdateClienteRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "AtualizarCliente",
+    "Description": "Atualiza todos os campos de um cliente."
+  },
+  {
+    "ContainingType": "Recommendation.Entidades.Cliente.ClienteRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddClienteRoutes\u003Eb__0_0",
-    "RelativePath": "Clientes/ Cadastrar Cliente",
+    "RelativePath": "Clientes/CadastrarCliente",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -20,13 +49,13 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Cadastrar Cliente",
+    "EndpointName": "CadastrarCliente",
     "Description": "Todos os campos s\u00E3o obrigatorios"
   },
   {
     "ContainingType": "Recommendation.Entidades.Cliente.ClienteRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddClienteRoutes\u003Eb__0_1",
-    "RelativePath": "Clientes/ Listar Clientes",
+    "RelativePath": "Clientes/ListarClientes",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
@@ -40,86 +69,13 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Listar Clientes",
+    "EndpointName": "ListarClientes",
     "Description": "Listagem de todos os clientes cadastrados."
   },
   {
-    "ContainingType": "Recommendation.Entidades.Cliente.ClienteRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddClienteRoutes\u003Eb__0_2",
-    "RelativePath": "Clientes/{Id}",
-    "HttpMethod": "PUT",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Recomendacao.Entidades.Cliente.Requests.UpdateClienteRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "Atualizar Cliente",
-    "Description": "Atualiza todos os campos de um cliente."
-  },
-  {
-    "ContainingType": "Recommendation.Entidades.Nutricionista.NutricionistaRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddNutricionistaRoutes\u003Eb__0_0",
-    "RelativePath": "Nutricionistas/ Cadastrar Nutricionistas",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Recommendation.Entidades.Nutricionista.Requests.AddNutricionistaRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "Cadastrar Nutricionista",
-    "Description": "Todos os campos s\u00E3o obrigatorios."
-  },
-  {
-    "ContainingType": "Recommendation.Entidades.Nutricionista.NutricionistaRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddNutricionistaRoutes\u003Eb__0_1",
-    "RelativePath": "Nutricionistas/ Listar Nutricionistas",
-    "HttpMethod": "GET",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[Recommendation.Entidades.Nutricionista.Nutricionista, Recommendation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "Listar Nutricionistas",
-    "Description": "Listagem de todos os Nutricionistas."
-  },
-  {
-    "ContainingType": "Recommendation.Entidades.Nutricionista.NutricionistaRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddNutricionistaRoutes\u003Eb__0_2",
-    "RelativePath": "Nutricionistas/{id}",
+    "ContainingType": "Recommendation.Entidades.Parceiros.ParceiroRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddParceiroRoutes\u003Eb__0_2",
+    "RelativePath": "Parceiros/{id}",
     "HttpMethod": "PUT",
     "IsController": false,
     "Order": 0,
@@ -131,7 +87,7 @@
       },
       {
         "Name": "request",
-        "Type": "Recommendation.Entidades.Nutricionista.Requests.UpdateNutricionistaRequest",
+        "Type": "Recommendation.Entidades.Parceiros.Requests.UpdateParceiroRequest",
         "IsRequired": true
       }
     ],
@@ -142,13 +98,134 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Atualizar Cadastro de Nutricionista",
-    "Description": "Atualiza todos os campos do registro de um Nutricionista."
+    "EndpointName": "Atualizar Cadastro de Parceiro",
+    "Description": "Atualiza todos os campos do registro de um Parceiro."
+  },
+  {
+    "ContainingType": "Recommendation.Entidades.Parceiros.ParceiroRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddParceiroRoutes\u003Eb__0_0",
+    "RelativePath": "Parceiros/Cadastrar Parceiros",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Recommendation.Entidades.Parceiros.Requests.AddParceiroRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Cadastrar Parceiros",
+    "Description": "Todos os campos s\u00E3o obrigatorios."
+  },
+  {
+    "ContainingType": "Recommendation.Entidades.Parceiros.ParceiroRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddParceiroRoutes\u003Eb__0_1",
+    "RelativePath": "Parceiros/Listar Parceiros",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Recommendation.Entidades.Parceiros.Parceiro, Recommendation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Listar Parceiros",
+    "Description": "Listagem de todos os Parceiros."
+  },
+  {
+    "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_1",
+    "RelativePath": "Prescri\u00E7\u00F5es/{Cpf}",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Recommendation.Entidades.Prescricao.Requests.AddItensRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "AdicionarItensPrescri\u00E7\u00E3o",
+    "Description": "Insere receitas a lista de receitas da prescri\u00E7\u00E3o."
+  },
+  {
+    "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_4",
+    "RelativePath": "Prescri\u00E7\u00F5es/{Cpf} Cancelado",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "AtualizarPrescri\u00E7\u00F5esCancelada",
+    "Description": "Atualiza o status de compra, e lan\u00E7a o horario em que o pagamento foi confirmado"
+  },
+  {
+    "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
+    "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_3",
+    "RelativePath": "Prescri\u00E7\u00F5es/{Cpf} finalizado",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "AtualizarPrescri\u00E7\u00F5esFinalizada",
+    "Description": "Atualiza o status de compra, e lan\u00E7a o horario em que o pagamento foi confirmado"
   },
   {
     "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_0",
-    "RelativePath": "Prescri\u00E7\u00F5es/ Cadastrar Nova Prescri\u00E7\u00E3o",
+    "RelativePath": "Prescri\u00E7\u00F5es/CadastrarNovaPrescri\u00E7\u00E3o",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -166,13 +243,13 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Cadastrar Nova Prescri\u00E7\u00E3o",
+    "EndpointName": "CadastrarNovaPrescri\u00E7\u00E3o",
     "Description": "Cadastro de cliente e receita obrigatorios."
   },
   {
     "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_1",
-    "RelativePath": "Prescri\u00E7\u00F5es/ Listar Prescri\u00E7\u00F5es",
+    "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_2",
+    "RelativePath": "Prescri\u00E7\u00F5es/Listar Prescri\u00E7\u00F5es",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
@@ -186,32 +263,8 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Listar Prescri\u00E7\u00F5es",
+    "EndpointName": "ListarPrescri\u00E7\u00F5es",
     "Description": "Listagem de todas as prescri\u00E7\u00F5es cadastradas."
-  },
-  {
-    "ContainingType": "Recommendation.Entidades.Prescricao.PrescricoesRoutes\u002B\u003C\u003Ec",
-    "Method": "\u003CAddPrescricoesRoutes\u003Eb__0_2",
-    "RelativePath": "Prescri\u00E7\u00F5es/{Id}",
-    "HttpMethod": "PUT",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "Atualizar Prescri\u00E7\u00F5es",
-    "Description": "Atualiza o status de compra, e lan\u00E7a o horario em que o pagamento foi confirmado"
   },
   {
     "ContainingType": "Recommendation.Entidades.Receita.ReceitaRoutes\u002B\u003C\u003Ec",
@@ -254,7 +307,7 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Listar Receitas",
+    "EndpointName": "Listar Catalogo",
     "Description": "Listagem de todas as receitas cadastradas."
   },
   {
@@ -289,7 +342,7 @@
   {
     "ContainingType": "Recommendation.Entidades.Recepcionista.RecepcionistaRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddRecepcionistaRoutes\u003Eb__0_2",
-    "RelativePath": "Recepcionistas/ Atualizar Recepcionista {id}",
+    "RelativePath": "Recepcionistas/{id}",
     "HttpMethod": "PUT",
     "IsController": false,
     "Order": 0,
@@ -318,7 +371,7 @@
   {
     "ContainingType": "Recommendation.Entidades.Recepcionista.RecepcionistaRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddRecepcionistaRoutes\u003Eb__0_0",
-    "RelativePath": "Recepcionistas/ Cadastrar Recepcionistas",
+    "RelativePath": "Recepcionistas/Cadastrar Recepcionistas",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -342,7 +395,7 @@
   {
     "ContainingType": "Recommendation.Entidades.Recepcionista.RecepcionistaRoutes\u002B\u003C\u003Ec",
     "Method": "\u003CAddRecepcionistaRoutes\u003Eb__0_1",
-    "RelativePath": "Recepcionistas/ Listar Recepcionistas",
+    "RelativePath": "Recepcionistas/Listar Recepcionistas",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,

@@ -1,10 +1,10 @@
 using Recommendation.Entidades;
 using Recommendation.Data;
 using Recommendation.Entidades.Cliente;
-using Recommendation.Entidades.Nutricionista;
 using Recommendation.Entidades.Receita;
 using Recommendation.Entidades.Recepcionista;
 using Recommendation.Entidades.Prescricao;
+using Recommendation.Entidades.Parceiros;
 
 namespace Recommendation
 {
@@ -38,7 +38,7 @@ namespace Recommendation
 
             ClienteRoutes.AddClienteRoutes(app);
             ReceitaRoutes.AddReceitaRoutes(app);
-            NutricionistaRoutes.AddNutricionistaRoutes(app);
+            ParceiroRoutes.AddParceiroRoutes(app);
             RecepcionistaRoutes.AddRecepcionistaRoutes(app);
             PrescricoesRoutes.AddPrescricoesRoutes(app);
 

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using Recommendation.Entidades.Prescricao;
+using Recommendation.Entidades.Receita;
 
 namespace Recommendation.Entidades.Cliente
 {
@@ -25,10 +26,9 @@ namespace Recommendation.Entidades.Cliente
         public string Bairro { get; private set; }
         [Required]
         public string Cidade { get; private set; }
+        public bool PossuiComorbidade { get; private set; }
 
-        //public  ICollection<Prescricoes> ClientePrescricoes { get; set; }
-
-        public Clientes(string nome, string cpf, string endereco, int nmrResidencial, string bairro, string cidade)
+        public Clientes(string nome, string cpf, string endereco, int nmrResidencial, string bairro, string cidade, bool possuiComorbidade)
         {
             Id = Guid.NewGuid();
             Nome = nome ?? throw new ArgumentNullException(nameof(nome));
@@ -38,6 +38,7 @@ namespace Recommendation.Entidades.Cliente
             NmrResidencial = nmrResidencial;
             Bairro = bairro ?? throw new ArgumentNullException(nameof(bairro));
             Cidade = cidade ?? throw new ArgumentNullException(nameof(cidade));
+            PossuiComorbidade = possuiComorbidade;
         }
 
         public void AtualizarNome(string nome)
@@ -73,6 +74,11 @@ namespace Recommendation.Entidades.Cliente
         public void AtualizarCidade(string cidade)
         {
             Cidade = cidade;
+        }
+
+        public void AtualizarComorbidade(bool isComorbidade)
+        {
+            PossuiComorbidade = isComorbidade;
         }
     }
 }

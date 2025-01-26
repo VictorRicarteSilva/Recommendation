@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Recommendation.Entidades.Nutricionista
+namespace Recommendation.Entidades.Parceiros
 {
-    public class Nutricionista
+    public class Parceiro
     {
         public Guid Id { get; init; }
         [Required]
@@ -16,13 +16,15 @@ namespace Recommendation.Entidades.Nutricionista
         [Required]
         [MaxLength(20)]
         public string Numero { get; private set; }
+        public string Senha { get; private set; }
 
-        public Nutricionista(string nome, string profissao, string email, string numero)
+        public Parceiro(string nome, string profissao, string email, string numero, string senha)
         {
             Nome = nome;
             Profissao = profissao;
             Email = email;
             Numero = numero;
+            Senha = senha;
         }
 
         public void AtualizarNome(string nome)
@@ -40,6 +42,11 @@ namespace Recommendation.Entidades.Nutricionista
         public void AtualizarNumero(string numero)
         {
             Numero = numero;
+        }
+
+        public void AtualizarSenha(string senha)
+        {
+            Senha = senha;
         }
     }
 }

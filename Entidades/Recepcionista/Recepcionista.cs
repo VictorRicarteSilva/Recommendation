@@ -4,6 +4,7 @@ namespace Recommendation.Entidades.Recepcionista
 {
     public class Recepcionista
     {
+        [Key]
         public Guid Id { get; init; }
         [Required]
         [MaxLength(150)]
